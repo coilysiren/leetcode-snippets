@@ -2,6 +2,9 @@
 #
 # time: O(n) - loops through the list once
 # space: O(1) - only 2 values stored
+#
+# written b/c v1 is slow enough to timeout
+# v1 => https://github.com/lynncyrin/leetcode-snippets/blob/master/buy_sell_stock_v1.py
 
 
 class Solution:
