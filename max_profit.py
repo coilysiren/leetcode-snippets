@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/solution/
+# https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/submissions/
 
 
 class Solution:
@@ -8,6 +8,10 @@ class Solution:
     def maxProfitFromIndex(self, prices: List[int], startIndex: int) -> int:
         maxProfitFromAllRoots = 0
 
+        # we might not need this!
+        if startIndex >= len(prices):
+            return 0
+
         for treeRootIndex in range(startIndex, len(prices)):
             rootPrice = prices[treeRootIndex]
             rootTreeProfit = 0
@@ -16,13 +20,17 @@ class Solution:
                 nextPrice = prices[nextNodeIndex]
                 nextProfit = nextPrice - rootPrice
 
+                print(
+                    f"looking at index combination {startIndex} {treeRootIndex} {nextNodeIndex}"
+                )
+
                 # this is the single line that respects when we would be doing a "transaction"
                 if nextProfit > 0:
 
                     # this line determines that this particular transaction path is more valuable
                     # than all the other potential transaction paths we could be doing
                     thisTreeProfit = (
-                        self.maxProfitFromIndex(prices, nextNodeIndex) + nextProfit
+                        self.maxProfitFromIndex(prices, nextNodeIndex + 1) + nextProfit
                     )
 
                     # assign the tree with this particular root to our top level profit tracker
