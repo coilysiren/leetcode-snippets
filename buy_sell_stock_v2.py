@@ -18,7 +18,6 @@ class Solution:
             if (price - nextBuyPrice) > (profit):
                 print(f"sell price to {price}, buy price to {nextBuyPrice}")
                 profit = price - nextBuyPrice
-                buyPrice = buyPrice
 
             # check if we should move the buy price b/c its lower
             elif price < nextBuyPrice:
