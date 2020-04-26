@@ -1,4 +1,7 @@
 # https://leetcode.com/contest/weekly-contest-186/problems/maximum-score-after-splitting-a-string/
+#
+# time: O(3n) - iterate through the list 3 times
+# space: O(n) - store a key value list the same size as the input list
 
 
 class Solution:
