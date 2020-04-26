@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 #
-# time: O(n^2) - loops through the list twice
+# time: O(n^2) - loops through the list for every entry
 # space: O(1) - only 1 value stored
 
 

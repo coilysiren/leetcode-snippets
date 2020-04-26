@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/submissions/
-
-# return sum(prices[a+1] - prices[a] for a in range(len(prices)-1) if prices[a] < prices[a+1])
+#
+# time: O(n^n) - generates a recursive tree for every entry
+# space: O(n) - only stores indexes and profit, but stores an index set for every root node
 
 
 class Solution:
