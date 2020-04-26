@@ -25,6 +25,9 @@ class Solution:
         if steps == 0:
             return [], 0, score
 
+        if len(path) == 1:
+            return [], 0, score + path[0]
+
         leftPath = path[1:]
         rightPath = path[:-1]
 
@@ -42,9 +45,9 @@ class Solution:
             score = score + rightTreeScore
             path = rightPath
 
-        # print(f"\t path {path}")
-        # print(f"\t steps {steps}")
-        # print(f"\t score {score}")
+        print(f"\t path {path}")
+        print(f"\t steps {steps}")
+        print(f"\t score {score}")
 
         return path, steps, score
 
@@ -59,6 +62,42 @@ if __name__ == "__main__":
         ({"cardPoints": [2, 2, 2, 0, 100, 1, 1], "k": 3}, 102),
         ({"cardPoints": [1, 1, 1, 0, 100, 1, 1], "k": 3}, 102),
         ({"cardPoints": [1, 1, 0, 100, 1], "k": 2}, 101),
+        ({"cardPoints": [2, 2, 2], "k": 20}, 6),
+        (
+            {
+                "cardPoints": [
+                    30,
+                    88,
+                    33,
+                    37,
+                    18,
+                    77,
+                    54,
+                    73,
+                    31,
+                    88,
+                    93,
+                    25,
+                    18,
+                    31,
+                    71,
+                    8,
+                    97,
+                    20,
+                    98,
+                    16,
+                    65,
+                    40,
+                    18,
+                    25,
+                    13,
+                    51,
+                    59,
+                ],
+                "k": 15,
+            },
+            0,
+        ),
     ]
 
     for argset in args:
@@ -66,5 +105,5 @@ if __name__ == "__main__":
         desiredOutput = argset[1]
         actualOutput = Solution().maxScore(**inputs)
         print(
-            f"\ninput \n\t{inputs}, \n\toutput (desired, actual) {desiredOutput}, {actualOutput}"
+            f"input \n\t{inputs}, \n\toutput (desired, actual) {desiredOutput}, {actualOutput}\n"
         )
